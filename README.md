@@ -25,7 +25,7 @@ simple-web-app-devops/
 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/AshwinShetty3/simple-web-app-devops.git
+https://github.com/AshwinShetty3/simple-web-app-devops.git
 cd simple-web-app-devops
    ```
 

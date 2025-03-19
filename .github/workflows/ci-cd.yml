@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check HTML syntax
+      run: |
+        echo "Installing html-validator-cli..."
+        npm install -g html-validator-cli
+        echo "Validating index.html..."
+        html-validator --file=index.html --verbose
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: false
+        load: true
+        tags: simple-web-app:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Test Docker container
+      run: |
+        echo "Starting Docker container..."
+        docker run -d -p 8080:80 --name test-container simple-web-app
+        echo "Waiting for container to start..."
+        sleep 5
+        echo "Testing if container is running..."
+        if ! docker ps | grep test-container; then
+          echo "Container is not running"
+          exit 1
+        fi
+        echo "Testing HTTP response..."
+        RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080)
+        if [ "$RESPONSE" != "200" ]; then
+          echo "HTTP response code is not 200, got: $RESPONSE"
+          exit 1
+        fi
+        echo "Container is running and returning HTTP 200 OK"
+        docker logs test-container
+        docker stop test-container

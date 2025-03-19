@@ -93,9 +93,9 @@ git push origin main
 2. Verify the Pipeline:
 
 ```bash
- - Go to the "Actions" tab in your GitHub repository.
- - Check that the pipeline runs automatically after the push.
- - Verify that the new changes are deployed and reflected in your web app.
+ - Go to the "Actions" tab in your GitHub repository
+ - Check that the pipeline runs automatically after the push
+ - Verify that the new changes are deployed and reflected in your web app
   ```
 
 ## To Enable Notifications (on failures):

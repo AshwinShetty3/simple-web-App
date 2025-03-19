@@ -76,28 +76,14 @@ git push origin main
    Check that the pipeline runs automatically after the push.
    Verify that the new changes are deployed and reflected in your web app.
 
-## To Monitor the Pipeline:
-   Set up monitoring to ensure the pipeline runs smoothly in the future.
-
-1. Enable Notifications:
-   - In your GitHub repository, go to Settings → Notifications.
+## To Enable Notifications (on failures):
    1. Go to your GitHub repository.
    2. Click on Settings → Notifications.
    3. Under Custom routing, ensure your email is added.
    4. Scroll down to Actions and enable notifications for:
-     - Workflow runs (failures only).
-     - Workflow jobs (failures only).
+      Workflow runs (failures only).
+      Workflow jobs (failures only).
 
-2. Check Pipeline Logs:
-   - Regularly review the logs in the "Actions" tab to ensure there are no errors.
 
-##  Additional addons: 
-   To enhance further Improve the CI/CD pipeline:
-   
-```bash
-Add Testing: Add a step to run automated tests (like: unit tests, integration tests) in the pipeline.
-Add Linting: Use a linter for HTML to enforce code quality.
-Add Security Scanning: Use tools like 'trivy' or 'snyk' to scan your Docker image for vulnerabilities.
-   ```
      
 

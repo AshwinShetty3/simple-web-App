@@ -16,9 +16,9 @@ simple-web-app-devops/
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml    # GitHub Actions workflow
-├── index.html           # Simple web page
+├── index.html           # web page
 ├── Dockerfile           # Docker container configuration
-└── README.md            # This documentation
+└── README.md            # Documentation
    ```
 ## Setup
 

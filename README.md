@@ -48,8 +48,8 @@ docker run -p 8080:80 simple-web-app
    ```
 
 4. Verify Your Application is Running on Port 8080:
-   Eg: abc123def456   your-web-app  "nginx -g 'daemon of…"   5 minutes ago  Up 5 minutes  0.0.0.0:8080->80/tcp   web-app
  ```bash
+# Eg: abc123def456   your-web-app  "nginx -g 'daemon of…"   5 minutes ago  Up 5 minutes  0.0.0.0:8080->80/tcp   web-app
  docker ps
    ```
    

@@ -9,24 +9,41 @@ This is a simple web application that displays "Hello, DevOps!". The project inc
 - Git
 - GitHub account
 
+## Project Structure
+The repository contains the following key files:
+
+simple-web-app-devops/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml    # GitHub Actions workflow
+├── index.html           # Simple web page
+├── Dockerfile           # Docker container configuration
+└── README.md            # This documentation
+
 ## Setup
 
-1. Pull form Docker Hub or Clone this repository:
+1. Clone the Repository:
 
 ```bash
-https://github.com/AshwinShetty3/DevOps-Assignment.git
+git clone https://github.com/AshwinShetty3/simple-web-app-devops.git
+cd simple-web-app-devops
    ```
 
-2. Build the Docker Image:
+2. Building and Running Locally with Docker:
 
 ```bash
- docker build -t simple-web-app .
+ # Build the Docker image
+docker build -t simple-web-app .
+
+# Run the container
+docker run -p 8080:80 simple-web-app
+
    ```
 
-3. Exposed the Port:
-   Mappe your application to port 8080 (you can use any port number instead of 8080)
+3. Exposed the Port to Mappe your application to port 8080 
 ```bash
- docker build -t simple-web-app .
+ # you can use any port number instead of 8080
+
    ```
 
 4. Verify Your Application is Running on Port 8080:
@@ -35,40 +52,41 @@ https://github.com/AshwinShetty3/DevOps-Assignment.git
  docker ps
    ```
    
-5. Test Your Application:
+5. Access the application in your browser:
 
 ```bash
  http://<your-ec2-public-ip>:8080
+or
+ http://localhost:8080
    ```
    
 
-## CI/CD Pipeline using GitHub Actions Workflow setup:
-
-This project uses GitHub Actions to automate the build and deployment process. The pipeline performs the following steps:
+## This project uses GitHub Actions to automate the build and deployment process.:
 The CI/CD pipeline is defined in .github/workflows/ci-cd.yml. It performs the following steps:
 
-1. Checkout Code: Fetches the latest code from the repository.
-2. Validate HTML Syntax: Checks the index.html file for syntax errors.
-3. Build Docker Image: Builds the Docker image.
-4. Run Docker Container: Runs the Docker container locally.
+1. The pipeline performs the following steps:
+   - Checkout Code: Fetches the latest code from the repository
+   - HTML Validation: Checks the syntax of the HTML file
+   - Docker Build: Builds the Docker image
+   - Run Docker Container: Runs the Docker container locally
 
-1. Push the web-app to your repository:
+2. The pipeline is triggered automatically on:
+   - Push to main branch
+   - Pull requests to main branch
+
+
+## Making Changes and Triggering the CI/CD Pipeline:
+
+1. To Test the CI/CD Pipeline Make Changes or Edit the index.html file locally then Commit and push the changes:
 
 ```bash
-git init
+# Stage your changes
 git add .
-git commit -m "Your commit message"
-git push origin main
-  ```
 
-## Test the CI/CD Pipeline:
+# Commit your changes
+git commit -m "Your descriptive commit message"
 
-1. Make Changes or Edit the index.html file locally. For example, change "Hello, DevOps!" to "Hello, CI/CD!".
-   Commit and push the changes:
-
-```bash
-git add index.html
-git commit -m "Update index.html message"
+# Push to GitHub to trigger the CI/CD pipeline
 git push origin main
   ```
 2. Verify the Pipeline:

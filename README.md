@@ -42,8 +42,7 @@ docker run -p 8080:80 simple-web-app
 
 3. Exposed the Port to Mappe your application to port 8080 
 ```bash
- # you can use any port number instead of 8080 in Ec2 instance
- EC2 → Security Groups → Add a new rule →  Type: Custom TCP → Source: 0.0.0.0/0 (or
+ In EC2 → Security Groups → Add a new rule →  Type: Custom TCP → Source: 0.0.0.0/0 (or
  limit to specific IPs for better security)
    ```
 

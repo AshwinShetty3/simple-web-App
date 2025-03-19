@@ -91,9 +91,12 @@ git commit -m "Your descriptive commit message"
 git push origin main
   ```
 2. Verify the Pipeline:
-   Go to the "Actions" tab in your GitHub repository.
-   Check that the pipeline runs automatically after the push.
-   Verify that the new changes are deployed and reflected in your web app.
+
+```bash
+ - Go to the "Actions" tab in your GitHub repository.
+ - Check that the pipeline runs automatically after the push.
+ - Verify that the new changes are deployed and reflected in your web app.
+  ```
 
 ## To Enable Notifications (on failures):
    1. Go to your GitHub repository.

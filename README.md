@@ -11,7 +11,7 @@ This is a simple web application that displays "Hello, DevOps!". The project inc
 
 ## Project Structure
 The repository contains the following key files:
-
+```bash
 simple-web-app-devops/
 ├── .github/
 │   └── workflows/
@@ -19,7 +19,7 @@ simple-web-app-devops/
 ├── index.html           # Simple web page
 ├── Dockerfile           # Docker container configuration
 └── README.md            # This documentation
-
+   ```
 ## Setup
 
 1. Clone the Repository:
